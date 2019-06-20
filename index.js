@@ -6,23 +6,21 @@
 // Write a program to display the city name if the string begins with "Los" or "New" otherwise return
 // "The city name does not begin with Los or New".
 
-const cityLosNew = city => city.substring(0, 3) === "Los" || city.substring(0, 3) === "New" ? city : "The city name does not begin with Los or New";
-//console.log(cityLosNew("Lo Angeles"));
+//const cityLosNew = city => city.substring(0, 3) === "Los" || city.substring(0, 3) === "New" ? city : "The city name does not begin with Los or New";
+const cityLosNew = city => city.startsWith() === "Los" || city.startsWith() === "New" ? city : "The city name does not begin with Los or New.";
+// console.log(cityLosNew("Lo Angeles"));
 
-// done works
+// done, works
 
 
 // Write a program to calculate the sum of three elements of a given array of integers. The length of the array must be 3.
 // Example [5, 10, 15] ➞ 30
 
-const sumThreeNum = arr => {
-    if (arr.length === 3) { return arr.reduce((acc, num) => acc + num) } else { return "This array doesn't have 3 items" }
-};
+const sumThreeNum = arr => arr.length === 3 ? arr.reduce((acc, num) => acc + num) : "This array doesn't have 3 items.";
+const numbers = [3, 10, 15, 4];
+//console.log(sumThreeNum(numbers));
 
-const numbers = [3, 10, 15];
-//console.log(sumThreeNum(...numbers));
-
-//doesn't work
+//done, work
 
 
 // Given two strings, firstName and lastName, return a single string in the format "last, first". Examples "John", "Doe" ➞ "Doe, John" "Mary", "Green" ➞ "Green, Mary"
@@ -48,24 +46,21 @@ const integerDivisible = num => num % 100 === 0;
 // ["new", "pander", "scoop"], "er" ➞ ["newer", "panderer", "scooper"]
 // ["bend", "sharpen", "mean"], "ing" ➞ ["bending", "sharpening", "meaning"]
 
-// const endingStr = (arr, end) => arr.forEach((item, newArr) => newArr.push(arr[item].concat(end)));
-// const words = ["clever", "meek", "hurried", "nice"];
-// console.log(endingStr(...words, "ly"));
-
-//console.log(words.forEach((obj, arr) => arr.push(obj)))
-
-//couldn't fix it. could you Benja?
-
-//easy approach
-
-const endingStr = (arr, end) => {
-    let newarr = [];
-    for (i = 0; i < arr.length; i++) { newarr.push(arr[i].concat(end)) }
-    return newarr
-}
+const endingStr = (arr, end) => arr.map(item => item.concat(end));
 const words = ["clever", "meek", "hurried", "nice"];
-//console.log(endingStr(words, "ly"));
+// console.log(endingStr(words, "ly"));
 
+// easy approach
+
+// const endingStr = (arr, end) => {
+//     let newarr = [];
+//     for (i = 0; i < arr.length; i++) { newarr.push(arr[i].concat(end)) }
+//     return newarr
+// }
+// const words = ["clever", "meek", "hurried", "nice"];
+// console.log(endingStr(words, "ly"));
+
+// done, works
 
 // Write a program that checks whether a number is even or odd and returns "even" for even numbers and "odd" for odd numbers.
 // Examples & Expected Output 3 ➞ "3 is odd" 146 ➞ "146 is even" 19 ➞ "19 is odd"
@@ -80,34 +75,26 @@ const evenOdd = x => x % 2 === 0 ? `${x} is even` : `${x} is odd`;
 //Convert each first letter to uppercase.
 // Make sure your code works for any three names e.g. "john james smith".
 
-// const capitalize = str => str.split(' ').forEach(element => element[0].toUpperCase());
+// let newArr = [];
+// const capitalize = str => str.split(' ').forEach(element => newArr.push(element[0].toUpperCase() + element.substring(1, element.length)));
 // let john = "john james smith";
-// console.log(capitalize(john));
+// capitalize(john);
+// console.log(newArr.toString().replace(/,/gi, " ").concat("."));
+
+// done works
 
 const capitalize = str => {
     let arr = str.split(' ');
     let newarr = [];
     for (i = 0; i < arr.length; i++) {
-        newarr.push([i].charAt(0).toUpperCase(), [i].substring[0])
-    } return newarr
+        newarr.push(arr[i].charAt(0).toUpperCase() + arr[i].substring(1, i.lenght))
+    } return newarr.toString().replace(/,/gi, " ").concat(".")
 }
 
 let john = "john james smith";
 console.log(capitalize(john));
 
-const items = ['item1', 'item2', 'item3'];
-const copy = [];
-// for (let i=0; i<items.length; i++) {
-//     copy.push(items[i]);
-//   }
-
-//   // after
-// items.forEach(function (item) {
-//     copy.push(item.toUpperCase([0]));
-// });
-
-// console.log(copy);
-
+//done works.
 
 
 // You are given 2 out of 3 of the angles in a triangle in degrees.
@@ -140,7 +127,7 @@ const messure = str => typeof str === "string" ? str.split(" ").length : "This i
 
 
 const example = ["This is an example"];
-//console.log(messure(example));
+console.log(messure(example));
 
 
 // Write a program to multiply each value in an array by the length of the array. 
@@ -149,4 +136,4 @@ const example = ["This is an example"];
 //[4, 1, 1] ➞ [12, 3, 3] [1, 0, 3, 3, 7, 2, 1] ➞ [7, 0, 21, 21, 49, 14, 7] [0] ➞ [0]
 
 const arrNumbs = [2, 3, 1, 0].map(x => x * 4);
-//console.log(arrNumbs);
+console.log(arrNumbs);
