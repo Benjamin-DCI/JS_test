@@ -4,12 +4,11 @@
 // ## Complete all questions to the best of your abilities. You can use google, but you cannot ask other students or teachers for help. Also, do not copy code. 
 
 // 1. Write a program to display the city name if the string begins with "Los" or "New" otherwise return "The city name does not begin with Los or New".
-const losOrNew = str =>
-    str.includes("Los") || str.includes("New") ?
-        str : "The city name does not begin with Los or New";
+const losOrNew = str => str.startsWith("Los") || str.startsWith("New") ?
+    str : "The city name does not begin with Los or New";
 
 console.log(
-    losOrNew("Los Santos")
+    losOrNew("Lo Santos")
 );
 
 
@@ -70,21 +69,12 @@ console.log(
     evenOrOdd(30)
 );
 
-
 // 7. Make a variable with the string value of "maria jane jones". Convert each first letter to uppercase. Make sure your code works for any three names e.g. "john james smith".
-const firstUpper = str => {
-    arr = str.split(" ");
-    newArr = [];
-    for (let name in arr) {
-        newArr.push(arr[name][0].toUpperCase() + arr[name].slice(1))
-    }
-    return newArr.join(" ")
-}
+const firstUpper = str => str.split(" ").map(x => x[0].toUpperCase() + x.slice(1)).join(" ");
 
 console.log(
     firstUpper("maria jane jones")
 );
-
 
 // 8. You are given 2 out of 3 of the angles in a triangle in degrees. Write a program that classifies a missing angle of a triangle as either "acute", "right", or "obtuse" based on its degrees.
 
@@ -97,18 +87,9 @@ console.log(
 // 27, 59 (29 + 59 = 88), (180 - 88 = 92) ➞ Then the third angle is 92degrees so it is "obtuse" 
 // 135, 11 ➞ The third angle is "acute"
 // 45, 45 ➞ The third angle is a "right angle"
-const triangle = (d1, d2) => {
-
-    let d3 = 180 - (d1 + d2);
-
-    if (d3 < 90) {
-        return "acute";
-    } else if (d3 === 90) {
-        return "right";
-    } else {
-        return "obtuse"
-    }
-}
+const triangle = (d1, d2) =>
+    180 - (d1 + d2) === 90 ? "Rigth" :
+        180 - (d1 + d2) < 90 ? "Acute" : "Obtuse";
 
 console.log(
     triangle(70, 20)
@@ -125,7 +106,6 @@ console.log(
     countWords("This is an example")
 );
 
-
 // 10. Write a program to multiply each value in an array by the length of the array. Return the result as shown in the examples.
 // Examples
 // [2, 3, 1, 0] (2 * 4), (3 * 4), (1 * 4), (0 * 4) ➞ [8, 12, 4, 0] 
@@ -136,6 +116,4 @@ console.log(
 const multiplyArrLength = arr => arr.map(num => num * arr.length);
 
 console.log(multiplyArrLength([2, 3, 1, 0]));
-
-
 
